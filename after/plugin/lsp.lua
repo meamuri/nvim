@@ -2,10 +2,20 @@ local lsp = require('lsp-zero')
 lsp.preset('recommended')
 
 lsp.ensure_installed({
-	'tsserver',
+    'bashls',
+    'clangd',
+    'clojure_lsp',
+    'cssls',
 	'eslint',
+    'java_language_server',
+    'jsonls',
 	'lua_ls',
-	'rust_analyzer',
+    'ocamllsp',
+    'sqlls',
+    'zls',
+
+    -- 'tsserver',
+	-- 'rust_analyzer',
 })
 
 lsp.nvim_workspace()

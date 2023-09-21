@@ -14,6 +14,9 @@ return require('packer').startup(function(use)
   }
 
   use { "catppuccin/nvim", as = "catppuccin" }
+  use { "savq/melange-nvim" }
+  use { "rebelot/kanagawa.nvim" }
+
   use {
       'nvim-lualine/lualine.nvim',
       requires = { 'nvim-tree/nvim-web-devicons', opt = true }
