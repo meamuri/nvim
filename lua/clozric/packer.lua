@@ -13,9 +13,11 @@ return require('packer').startup(function(use)
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
 
+  -- THEMES --
   use { "catppuccin/nvim", as = "catppuccin" }
   use { "savq/melange-nvim" }
   use { "rebelot/kanagawa.nvim" }
+  -- THEMES --
 
   use {
       'nvim-lualine/lualine.nvim',
