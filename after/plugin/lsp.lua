@@ -16,6 +16,7 @@ require('mason-lspconfig').setup({
         'ocamllsp',
         'sqlls',
         'zls',
+        'gopls',
     },
     handlers = {
         lsp_zero.default_setup,
