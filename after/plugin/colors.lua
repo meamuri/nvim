@@ -9,4 +9,15 @@ function ColorMyPencilsKanagawa(color)
     vim.cmd.colorscheme(color)
 end
 
-ColorMyPencilsKanagawa()
+function ColorMyPencilsCatpuccin(color)
+    color = color or "catppuccin"
+    vim.cmd.colorscheme(color)
+end
+
+function ColorMyPencilsRosePine(color)
+    color = color or "rose-pine"
+    vim.cmd.colorscheme(color)
+end
+
+ColorMyPencilsMelange()
+-- ColorMyPencilsRosePine()
