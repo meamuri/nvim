@@ -5,6 +5,7 @@ require('lspconfig').lua_ls.setup(lua_opts)
 require('mason').setup({})
 require('mason-lspconfig').setup({
     ensure_installed = {
+        'ols',
         'bashls',
         'clangd',
         'clojure_lsp',
