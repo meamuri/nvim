@@ -17,6 +17,7 @@ require('mason-lspconfig').setup({
         'ocamllsp',
         'sqlls',
         'zls',
+        'rust_analyzer',
         'gopls',
     },
     handlers = {
