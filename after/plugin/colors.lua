@@ -19,5 +19,5 @@ function ColorMyPencilsRosePine(color)
     vim.cmd.colorscheme(color)
 end
 
-ColorMyPencilsMelange()
--- ColorMyPencilsRosePine()
+-- ColorMyPencilsMelange()
+ColorMyPencilsRosePine()

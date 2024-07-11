@@ -1,6 +1,9 @@
 local lsp_zero = require('lsp-zero')
 local lua_opts = lsp_zero.nvim_lua_ls()
+
 require('lspconfig').lua_ls.setup(lua_opts)
+-- Make sure that `opam install ocaml-lsp-server` is executed
+require('lspconfig').ocamllsp.setup({})
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
@@ -14,7 +17,6 @@ require('mason-lspconfig').setup({
         'java_language_server',
         'jsonls',
         'lua_ls',
-        'ocamllsp',
         'sqlls',
         'zls',
         'rust_analyzer',
