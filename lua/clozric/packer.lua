@@ -1,30 +1,44 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
+local function bootstrap_pckr()
+  local pckr_path = vim.fn.stdpath("data") .. "/pckr/pckr.nvim"
 
--- Only required if you have packer configured as `opt`
-vim.cmd.packadd('packer.nvim')
+  if not (vim.uv or vim.loop).fs_stat(pckr_path) then
+    vim.fn.system({
+      'git',
+      'clone',
+      "--filter=blob:none",
+      'https://github.com/lewis6991/pckr.nvim',
+      pckr_path
+    })
+  end
 
-return require('packer').startup(function(use)
+  vim.opt.rtp:prepend(pckr_path)
+end
+
+bootstrap_pckr()
+
+
+require('pckr').add{
   -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+  'wbthomason/packer.nvim';
 
-  use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.5',
+  {
+	  'nvim-telescope/telescope.nvim', tag = '0.1.8',
 	  -- or                            , branch = '0.1.x',
 	  requires = { {'nvim-lua/plenary.nvim'} }
-  }
+  };
 
   -- THEMES --
-  use { "catppuccin/nvim", as = "catppuccin" }
-  use { "savq/melange-nvim" }
-  use { "rebelot/kanagawa.nvim" }
-  use { "rose-pine/neovim", as = "rose-pine" }
+  { "catppuccin/nvim", as = "catppuccin" };
+  { "savq/melange-nvim" };
+  { "rebelot/kanagawa.nvim" };
+  { "rose-pine/neovim", as = "rose-pine" };
   -- THEMES --
 
-  use {
+  {
       'nvim-lualine/lualine.nvim',
       requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-  }
-  use {
+  };
+  {
       'nvim-tree/nvim-tree.lua',
       requires = {
           'nvim-tree/nvim-web-devicons', -- optional
@@ -32,21 +46,21 @@ return require('packer').startup(function(use)
       config = function()
           require("nvim-tree").setup {}
       end
-  }
+  };
 
-  use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
-  use('mbbill/undotree')
+  {'nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'}};
+  {'mbbill/undotree'};
 
-  use('tpope/vim-fugitive')
-  use {
+  {'tpope/vim-fugitive'};
+  {
       'lewis6991/gitsigns.nvim',
-  }
+  };
 
-  use('Olical/conjure')
+  {'Olical/conjure'};
 
-  use {
+  {
 	  'VonHeikemen/lsp-zero.nvim',
-      branch = 'v3.x',
+      branch = 'v4.x',
 	  requires = {
 		  {'williamboman/mason.nvim'},
 		  {'williamboman/mason-lspconfig.nvim'},
@@ -61,6 +75,6 @@ return require('packer').startup(function(use)
 		  -- Snippets
 		  {'L3MON4D3/LuaSnip'},
 	  }
-  }
-  use('ziglang/zig.vim')
-end)
+  };
+  {'ziglang/zig.vim'};
+}
